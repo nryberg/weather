@@ -1,3 +1,4 @@
 
 weather.log
 *.wal
+weather.db
