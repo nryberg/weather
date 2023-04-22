@@ -1,2 +1,4 @@
-features.2.properties.data,features.2.properties.id,features.2.properties.site,features.2.properties.prior,features.2.properties.obsTime,features.2.properties.temp,features.2.properties.dewp,features.2.properties.wspd,features.2.properties.wdir,features.2.properties.cover,features.2.properties.cldCvg1,features.2.properties.cldBas1,features.2.properties.visib,features.2.properties.fltcat,features.2.properties.altim,features.2.properties.slp,features.2.properties.rawOb
-METAR,KMSP,Minneapolis-St Paul,1,2023-04-14T10:53:00Z,17.2,5.6,10,180,FEW,FEW,250,10.00,VFR,1002.8,1002.2,KMSP 141053Z 18010KT 10SM FEW250 17/06 A2961 RMK AO2 SLP022 T01720056 $
+data_s,id_s,site_name,observation_Time,temp_celsius,dewpoint_celsius,wind_speed,wind_direction,cover,metar_text
+METAR,KMSP,Minneapolis-St Paul,2023-04-14T10:53:00Z,17.2,5.6,10,180,FEW,KMSP 141053Z 18010KT 10SM FEW250 17/06 A2961 RMK AO2 SLP022 T01720056 $
+METAR KMSP Minneapolis-St Paul 2023-04-14T10:53:00Z 17.2 5.6 10 180 FEW KMSP 141053Z 18010KT 10SM FEW250 17/06 A2961 RMK AO2 SLP022 T01720056 $
+METAR KMSP Minneapolis-St Paul 2023-04-14T10:53:00Z 17.2 5.6 10 180 FEW KMSP 141053Z 18010KT 10SM FEW250 17/06 A2961 RMK AO2 SLP022 T01720056 $
