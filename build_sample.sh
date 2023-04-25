@@ -1,0 +1,1 @@
+mlr --c2p cut -f Observed_Date,Temp_Celsius,Wind_Speed,Wind_Direction,Cover,Visibility then head ./weather_log.csv

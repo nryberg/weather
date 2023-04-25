@@ -1,0 +1,1 @@
+mc --quiet cp box/weather/weather.log  ~/ 
