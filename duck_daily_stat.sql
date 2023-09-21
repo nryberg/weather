@@ -1,10 +1,4 @@
-with fix_date as (
-    SELECT
-        substr(observed_timestamp_s, 1, 10) as obs_date,
-        temp_celsius
-    from
-        wx_load
-),
+
 daily_max as (
     SELECT
         obs_date,
