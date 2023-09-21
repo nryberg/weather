@@ -62,28 +62,28 @@ func main() {
 	defer csv_writer.Flush()
 
 	// Write Headers
-	csv_writer.Write([]string{"Now", "Hex", "Flight", "Lat", "Lon", "Alt", "Track", "Speed", "Squawk", "Radar", "Messages", "Groundspeed", "Altitude", "Rate_of_climb", "Category"})
+	csv_writer.Write([]string{"obsTime", "Temp", "Dewpt", "Wspd", "Wdir", "Cover", "Visib", "Fltcat", "Altim", "Slp", "RawOb"})
 
 	type Property struct {
-		Data    string `json:"data"`
-		Id      string `json:"id"`
-		Site    string `json:"site"`
-		ObsTime string `json:"obsTime"`
-		Temp    string `json:"temp"`
-		Dewpt   string `json:"dewpt"`
-		Wspd    string `json:"wspd"`
-		Wdir    string `json:"wdir"`
-		Cover   string `json:"cover"`
-		Visib   string `json:"visib"`
-		Fltcat  string `json:"fltcat"`
-		Altim   string `json:"altim"`
-		Slp     string `json:"slp"`
-		RawOb   string `json:"rawOb"`
+		Data    string  `json:"data"`
+		Id      string  `json:"id"`
+		Site    string  `json:"site"`
+		ObsTime string  `json:"obsTime"`
+		Temp    float64 `json:"temp"`
+		Dewpt   string  `json:"dewpt"`
+		Wspd    int     `json:"wspd"`
+		Wdir    int     `json:"wdir"`
+		Cover   string  `json:"cover"`
+		Visib   float64 `json:"visib"`
+		Fltcat  string  `json:"fltcat"`
+		Altim   float64 `json:"altim"`
+		Slp     float64 `json:"slp"`
+		RawOb   string  `json:"rawOb"`
 	}
 
 	type Feature struct {
-		Type       string     `json:"type"`
-		Properties []Property `json:"properties"`
+		Type       string   `json:"type"`
+		Properties Property `json:"properties"`
 	}
 
 	type Weather struct {
@@ -108,24 +108,37 @@ func main() {
 	// as just an example
 	//
 	fmt.Println("Start")
-	for i := 0; i < len(data.Aircraft); i++ {
 
-		timestamp := fmt.Sprintf("%f", data.Now)
-		lat := fmt.Sprintf("%f", data.Aircraft[i].Lat)
-		lon := fmt.Sprintf("%f", data.Aircraft[i].Lon)
-		alt := fmt.Sprintf("%d", data.Aircraft[i].Alt)
-		track := fmt.Sprintf("%f", data.Aircraft[i].Track)
-		speed := fmt.Sprintf("%d", data.Aircraft[i].Speed)
-		messages := fmt.Sprintf("%d", data.Aircraft[i].Messages)
-		groundspeed := fmt.Sprintf("%f", data.Aircraft[i].Groundspeed)
-		altitude := fmt.Sprintf("%d", data.Aircraft[i].Altitude)
-		rate_of_climb := fmt.Sprintf("%d", data.Aircraft[i].Rate_of_climb)
+	property := data.Features[1].Properties
+	obsTime := property.ObsTime
+	temp := fmt.Sprintf("%f", property.Temp)
+	dewpt := property.Dewpt
+	wspd := fmt.Sprintf("%d", property.Wspd)
+	wdir := fmt.Sprintf("%d", property.Wdir)
+	cover := property.Cover
+	visib := fmt.Sprintf("%f", property.Visib)
+	fltcat := property.Fltcat
+	altim := fmt.Sprintf("%f", property.Altim)
+	slp := fmt.Sprintf("%f", property.Slp)
+	rawOb := property.RawOb
 
-		// Write to csv file
-		// csv_writer.Write([]string{"Now", "Hex", "Flight", "Lat", "Lon", "Alt", "Track", "Speed", "Squawk", "Radar", "Messages", "Groundspeed", "Altitude", "Rate_of_climb", "Category"})
-		//
-		csv_writer.Write([]string{timestamp, data.Aircraft[i].Hex, data.Aircraft[i].Flight, lat, lon, alt, track, speed, data.Aircraft[i].Squawk, data.Aircraft[i].Radar, messages, groundspeed, altitude, rate_of_climb, data.Aircraft[i].Category})
-		//
-	}
+	// timestamp := fmt.Sprintf("%f", data.Now)
+	// lat := fmt.Sprintf("%f", data.Aircraft[i].Lat)
+	// lon := fmt.Sprintf("%f", data.Aircraft[i].Lon)
+	// alt := fmt.Sprintf("%d", data.Aircraft[i].Alt)
+	// track := fmt.Sprintf("%f", data.Aircraft[i].Track)
+	// speed := fmt.Sprintf("%d", data.Aircraft[i].Speed)
+	// messages := fmt.Sprintf("%d", data.Aircraft[i].Messages)
+	// groundspeed := fmt.Sprintf("%f", data.Aircraft[i].Groundspeed)
+	// altitude := fmt.Sprintf("%d", data.Aircraft[i].Altitude)
+	// rate_of_climb := fmt.Sprintf("%d", data.Aircraft[i].Rate_of_climb)
+
+	csv_writer.Write([]string{obsTime, temp, dewpt, wspd, wdir, cover, visib, fltcat, altim, slp, rawOb})
+	// Write to csv file
+	// csv_writer.Write([]string{"Now", "Hex", "Flight", "Lat", "Lon", "Alt", "Track", "Speed", "Squawk", "Radar", "Messages", "Groundspeed", "Altitude", "Rate_of_climb", "Category"})
+	//
+	// csv_writer.Write([]string{timestamp, data.Aircraft[i].Hex, data.Aircraft[i].Flight, lat, lon, alt, track, speed, data.Aircraft[i].Squawk, data.Aircraft[i].Radar, messages, groundspeed, altitude, rate_of_climb, data.Aircraft[i].Category})
+	//
+
 	fmt.Println("End")
 }
