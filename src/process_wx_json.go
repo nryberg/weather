@@ -1,8 +1,9 @@
+// TODO : process directory of files and write to one csv file
 // Process a JSON file and return a map of the data
 // Write the results to a csv file
 //
 // Usage: process_json.go <filename.json>
-// Example: process_json.go 1692416726.json
+// Example: process_wx_json.go wx.2023-08-18_20_48.json
 //
 
 // Pass in file name as argument
