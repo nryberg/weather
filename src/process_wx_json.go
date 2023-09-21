@@ -62,7 +62,7 @@ func main() {
 	defer csv_writer.Flush()
 
 	// Write Headers
-	csv_writer.Write([]string{"obsTime", "Temp", "Dewpt", "Wspd", "Wdir", "Cover", "Visib", "Fltcat", "Altim", "Slp", "RawOb"})
+	csv_writer.Write([]string{"obsTime", "Temp", "Dewp", "Wspd", "Wdir", "Cover", "Visib", "Fltcat", "Altim", "Slp", "RawOb"})
 
 	type Property struct {
 		Data    string  `json:"data"`
@@ -70,7 +70,7 @@ func main() {
 		Site    string  `json:"site"`
 		ObsTime string  `json:"obsTime"`
 		Temp    float64 `json:"temp"`
-		Dewpt   string  `json:"dewpt"`
+		Dewp    float64 `json:"dewp"`
 		Wspd    int     `json:"wspd"`
 		Wdir    int     `json:"wdir"`
 		Cover   string  `json:"cover"`
@@ -112,7 +112,7 @@ func main() {
 	property := data.Features[1].Properties
 	obsTime := property.ObsTime
 	temp := fmt.Sprintf("%f", property.Temp)
-	dewpt := property.Dewpt
+	dewp := fmt.Sprintf("%f", property.Dewp)
 	wspd := fmt.Sprintf("%d", property.Wspd)
 	wdir := fmt.Sprintf("%d", property.Wdir)
 	cover := property.Cover
@@ -122,23 +122,7 @@ func main() {
 	slp := fmt.Sprintf("%f", property.Slp)
 	rawOb := property.RawOb
 
-	// timestamp := fmt.Sprintf("%f", data.Now)
-	// lat := fmt.Sprintf("%f", data.Aircraft[i].Lat)
-	// lon := fmt.Sprintf("%f", data.Aircraft[i].Lon)
-	// alt := fmt.Sprintf("%d", data.Aircraft[i].Alt)
-	// track := fmt.Sprintf("%f", data.Aircraft[i].Track)
-	// speed := fmt.Sprintf("%d", data.Aircraft[i].Speed)
-	// messages := fmt.Sprintf("%d", data.Aircraft[i].Messages)
-	// groundspeed := fmt.Sprintf("%f", data.Aircraft[i].Groundspeed)
-	// altitude := fmt.Sprintf("%d", data.Aircraft[i].Altitude)
-	// rate_of_climb := fmt.Sprintf("%d", data.Aircraft[i].Rate_of_climb)
-
-	csv_writer.Write([]string{obsTime, temp, dewpt, wspd, wdir, cover, visib, fltcat, altim, slp, rawOb})
-	// Write to csv file
-	// csv_writer.Write([]string{"Now", "Hex", "Flight", "Lat", "Lon", "Alt", "Track", "Speed", "Squawk", "Radar", "Messages", "Groundspeed", "Altitude", "Rate_of_climb", "Category"})
-	//
-	// csv_writer.Write([]string{timestamp, data.Aircraft[i].Hex, data.Aircraft[i].Flight, lat, lon, alt, track, speed, data.Aircraft[i].Squawk, data.Aircraft[i].Radar, messages, groundspeed, altitude, rate_of_climb, data.Aircraft[i].Category})
-	//
+	csv_writer.Write([]string{obsTime, temp, dewp, wspd, wdir, cover, visib, fltcat, altim, slp, rawOb})
 
 	fmt.Println("End")
 }
