@@ -6,15 +6,6 @@
 // Example: process_wx_json.go wx.2023-08-18_20_48.json
 //
 
-// Pass in file name as argument
-// Check if file exists
-// If file exists
-
-// Open file
-// Read file
-// Parse file
-// Write to csv file
-
 package main
 
 import (
