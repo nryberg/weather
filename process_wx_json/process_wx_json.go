@@ -14,14 +14,9 @@ import (
 	"fmt"
 	"io"
 	"os"
-	"strings"
 )
 
-func main() {
-
-	json_filename := os.Args[1]
-	var filename string
-
+func process_wx_file(json_filename string, output_filename string) error {
 	// Open our jsonFile
 	jsonFile, err := os.Open(json_filename) // "1692416726.json")
 	// if we os.Open returns an error then handle it
@@ -31,17 +26,13 @@ func main() {
 	}
 	fmt.Printf("Successfully Opened %s", json_filename)
 
-	filename = strings.TrimSuffix(json_filename, ".json")
-
-	fmt.Println(filename)
-
 	// defer the closing of our jsonFile so that we can parse it later on
 	defer jsonFile.Close()
 	// read our opened xmlFile as a byte array.
 	byteValue, _ := io.ReadAll(jsonFile)
 
 	// Open the csv file for writing
-	csv_filename := filename + ".csv"
+	csv_filename := output_filename + ".csv"
 	fmt.Println(csv_filename)
 	csv_file, err := os.Create(csv_filename)
 	if err != nil {
@@ -115,6 +106,37 @@ func main() {
 	rawOb := property.RawOb
 
 	csv_writer.Write([]string{obsTime, temp, dewp, wspd, wdir, cover, visib, fltcat, altim, slp, rawOb})
+
+	return err
+}
+
+func main() {
+
+	path := os.Args[1]
+	output_filename := os.Args[2]
+
+	// Test if path is a directory
+	// if path is a directory, process all files in the directory
+	// if path is a file, process the file
+	// if path is not a file or directory, exit with error
+
+	files, err := os.ReadDir(path)
+
+	if err != nil {
+		// print error and exit
+		fmt.Println(err)
+		os.Exit(1)
+
+	} else {
+		fmt.Println("Directory exists")
+
+		for _, file := range files {
+			err := process_wx_file(path+"/"+file.Name(), output_filename)
+			if err != nil {
+				fmt.Println(err)
+			}
+		}
+	}
 
 	fmt.Println("End")
 }
