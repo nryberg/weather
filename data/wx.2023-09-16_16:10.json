@@ -1,0 +1,40 @@
+{ "type": "FeatureCollection",
+  "features": [
+  { "type": "Feature",
+    "properties": {
+      "data": "METAR",
+      "beg_time": "1694891406",
+      "end_time": "1694898606",
+      "wrap": "",
+      "bbox": "-93.2717,44.8398,-93.1411,44.9201"
+    }
+  },
+  { "type": "Feature",
+    "id": "1319597147",
+    "properties": {
+      "data": "METAR",
+      "id": "KMSP",
+      "site": "Minneapolis-St Paul",
+      "prior": 1,
+      "obsTime": "2023-09-16T20:53:00Z",
+      "temp": 20.6,
+      "dewp": 11.1,
+      "wspd": 10,
+      "wdir": 350,
+      "ceil": 80,
+      "cover": "OVC",
+      "cldCvg1": "BKN",
+      "cldBas1": "80",
+      "cldCvg2": "OVC",
+      "cldBas2": "100",
+      "visib": 7.00,
+      "fltcat": "VFR",
+      "altim": 1017.4,
+      "slp": 1017.1,
+      "rawOb": "KMSP 162053Z 35010KT 7SM BKN080 OVC100 21/11 A3004 RMK AO2 SLP171 T02060111 55007 $"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-93.231,44.885]
+    } 
+  }]}

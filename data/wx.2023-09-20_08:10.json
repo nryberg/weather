@@ -1,0 +1,39 @@
+{ "type": "FeatureCollection",
+  "features": [
+  { "type": "Feature",
+    "properties": {
+      "data": "METAR",
+      "beg_time": "1695208207",
+      "end_time": "1695215407",
+      "wrap": "",
+      "bbox": "-93.2717,44.8398,-93.1411,44.9201"
+    }
+  },
+  { "type": "Feature",
+    "id": "1323313035",
+    "properties": {
+      "data": "METAR",
+      "id": "KMSP",
+      "site": "Minneapolis-St Paul",
+      "prior": 1,
+      "obsTime": "2023-09-20T12:53:00Z",
+      "temp": 16.7,
+      "dewp": 13.3,
+      "wspd": 4,
+      "wdir": 130,
+      "cover": "FEW",
+      "cldCvg1": "FEW",
+      "cldBas1": "100",
+      "cldCvg2": "FEW",
+      "cldBas2": "250",
+      "visib": 9.00,
+      "fltcat": "VFR",
+      "altim": 1014.0,
+      "slp": 1013.5,
+      "rawOb": "KMSP 201253Z 13004KT 9SM FEW100 FEW250 17/13 A2994 RMK AO2 SLP135 ACC DSNT NW T01670133"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-93.231,44.885]
+    } 
+  }]}

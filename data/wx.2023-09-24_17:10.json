@@ -1,0 +1,44 @@
+{ "type": "FeatureCollection",
+  "features": [
+  { "type": "Feature",
+    "properties": {
+      "data": "METAR",
+      "beg_time": "1695586207",
+      "end_time": "1695593407",
+      "wrap": "",
+      "bbox": "-93.2717,44.8398,-93.1411,44.9201"
+    }
+  },
+  { "type": "Feature",
+    "id": "1327907961",
+    "properties": {
+      "data": "METAR",
+      "id": "KMSP",
+      "site": "Minneapolis-St Paul",
+      "prior": 1,
+      "obsTime": "2023-09-24T21:53:00Z",
+      "temp": 21.7,
+      "dewp": 15.0,
+      "wspd": 12,
+      "wdir": 110,
+      "ceil": 110,
+      "cover": "BKN",
+      "cldCvg1": "FEW",
+      "cldBas1": "35",
+      "cldCvg2": "SCT",
+      "cldBas2": "50",
+      "cldCvg3": "BKN",
+      "cldBas3": "110",
+      "cldCvg4": "BKN",
+      "cldBas4": "200",
+      "visib": 10.00,
+      "fltcat": "VFR",
+      "altim": 1011.6,
+      "slp": 1011.3,
+      "rawOb": "KMSP 242153Z COR 11012KT 10SM FEW035 SCT050 BKN110 BKN200 22/15 A2987 RMK AO2 LTG DSNT E SLP113 CB DSNT E MOV N TCU DSNT SE-S AND NW ACC ALQDS PRESENT WX VCSH T02170150"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-93.231,44.885]
+    } 
+  }]}
