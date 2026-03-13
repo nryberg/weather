@@ -8,3 +8,4 @@ Cover_Types.parquet
 Weather_History.csv
 cover_types (1).csv
 wtf.py
+duckdb_Weather_Log.db
