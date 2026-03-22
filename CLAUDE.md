@@ -68,7 +68,7 @@ Report pipeline status to `http://bigbox.tail37abc.ts.net:8000/status` (POST JSO
 ```bash
 HDID="http://bigbox.tail37abc.ts.net:8000/status"
 hdid_report() {
-  curl -s -X POST "$HDID" \
+  curl -s --max-time 5 -X POST "$HDID" \
     -H "Content-Type: application/json" \
     -d "{\"source\":\"weather-pipeline\",\"condition\":\"$1\",\"status\":\"$2\",\"message\":\"${3:-}\",\"hostname\":\"$(hostname)\"}" \
     > /dev/null
