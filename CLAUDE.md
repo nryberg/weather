@@ -70,7 +70,7 @@ HDID="http://bigbox.tail37abc.ts.net:8000/status"
 hdid_report() {
   curl -s -X POST "$HDID" \
     -H "Content-Type: application/json" \
-    -d "{\"source\":\"weather-pipeline\",\"condition\":\"$1\",\"status\":\"$2\",\"message\":\"${3:-}\"}" \
+    -d "{\"source\":\"weather-pipeline\",\"condition\":\"$1\",\"status\":\"$2\",\"message\":\"${3:-}\",\"hostname\":\"$(hostname)\"}" \
     > /dev/null
 }
 # hdid_report "fetch_metar" "ok" "Fetched 42 stations in 1.3s"
