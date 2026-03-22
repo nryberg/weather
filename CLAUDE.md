@@ -66,7 +66,7 @@ aviationweather.gov API
 Report pipeline status to `http://bigbox.tail37abc.ts.net:8000/status` (POST JSON). Use `source: "weather-pipeline"` and snake_case condition names like `fetch_metar`, `process_json`, `load_duckdb`.
 
 ```bash
-HDID="http://bigbox.tail37abc.ts.net:8000/status"
+HDID="http://100.118.211.73:8000/status"
 hdid_report() {
   curl -s --max-time 5 -X POST "$HDID" \
     -H "Content-Type: application/json" \

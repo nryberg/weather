@@ -1,8 +1,9 @@
-HDID="http://bigbox.tail37abc.ts.net:8000/status"
+HDID="http://100.118.211.73:8000/status"
+HOSTNAME_VAL=$(hostname)
 hdid_report() {
   curl -s --max-time 5 -X POST "$HDID" \
     -H "Content-Type: application/json" \
-    -d "{\"source\":\"weather-pipeline\",\"condition\":\"$1\",\"status\":\"$2\",\"message\":\"${3:-}\",\"hostname\":\"$(hostname)\"}" \
+    -d "{\"source\":\"weather-pipeline\",\"condition\":\"$1\",\"status\":\"$2\",\"message\":\"${3:-}\",\"hostname\":\"$HOSTNAME_VAL\"}" \
     > /dev/null
 }
 

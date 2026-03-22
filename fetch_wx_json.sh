@@ -1,4 +1,4 @@
-HDID="http://bigbox.tail37abc.ts.net:8000/status"
+HDID="http://100.118.211.73:8000/status"
 hdid_report() {
   curl -s --max-time 5 -X POST "$HDID" \
     -H "Content-Type: application/json" \
